@@ -1,0 +1,29 @@
+[33mcommit f52447215687744243280ca0f26e0abb503c1c45[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Walid Wazini <wazini25@gmail.com>
+Date:   Thu Aug 11 15:26:56 2022 +0800
+
+    minor changes
+
+[33mcommit 989cb55aa1aa4f4ff6bc61bc1c98faab95d63752[m
+Author: Walid Wazini <wazini25@gmail.com>
+Date:   Thu Aug 11 06:12:25 2022 +0800
+
+    new models and board controllers
+
+[33mcommit a24ca3b2402f615fa800865ee5f420a0cb742879[m
+Author: Walid Wazini <wazini25@gmail.com>
+Date:   Wed Aug 10 09:43:09 2022 +0800
+
+    asdas
+
+[33mcommit 32653ef2e10f676eae6a91ae1f5e99a36387bc3e[m
+Author: Walid Wazini <wazini25@gmail.com>
+Date:   Tue Aug 9 16:08:25 2022 +0800
+
+    gitignore
+
+[33mcommit f4232a33e4081100ddfda191c4ca60c0ca47e961[m
+Author: Walid Wazini <wazini25@gmail.com>
+Date:   Tue Aug 9 16:03:57 2022 +0800
+
+    first commit
