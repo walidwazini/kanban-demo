@@ -44,7 +44,7 @@ exports.updatePosition = async (req, res) => {
 
 exports.getOne = async (req, res) => {
   const { boardId } = req.params
-
+  // console.log(req.user)
   try {
     const board = await Board.findOne({ user: req.user._id, _id: boardId })
     if (!board) return res.status(404).json('Board not found')
@@ -100,6 +100,19 @@ exports.editBoard = async (req, res) => {
     res.status(200).json(board)
 
   } catch (err) {
+    res.status(500).json(err)
+  }
+}
+
+exports.getFavourites = async (req, res) => {
+  console.log(req)
+  try {
+    const favourites = await Board.find({ user: req.user._id, favourite: true })
+      .sort('-favouritePosition')
+    console.log(favourites)
+    res.status(200).json(favourites)
+  } catch (err) {
+    console.log(err)
     res.status(500).json(err)
   }
 }

@@ -19,6 +19,13 @@ router.put(
   boardController.updatePosition
 )
 
+//  ! Since 'favourites' is not a special value, this req must be above put /:boardId
+router.get(
+  '/favourites',
+  tokenHandler.verifyToken,
+  boardController.getFavourites
+)
+
 router.get(
   '/:boardId',
   param('boardId').custom(value => {
@@ -42,6 +49,7 @@ router.put(
   tokenHandler.verifyToken,
   boardController.editBoard
 )
+
 
 
 module.exports = router
