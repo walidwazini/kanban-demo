@@ -105,14 +105,28 @@ exports.editBoard = async (req, res) => {
 }
 
 exports.getFavourites = async (req, res) => {
-  console.log(req)
   try {
     const favourites = await Board.find({ user: req.user._id, favourite: true })
       .sort('-favouritePosition')
-    console.log(favourites)
     res.status(200).json(favourites)
   } catch (err) {
     console.log(err)
+    res.status(500).json(err)
+  }
+}
+
+exports.changeFavouritePosition = async (req, res) => {
+  const { favBoards } = req.body
+  try {
+    for (const key in favBoards.reverse()) {
+      const board = favBoards[key]
+      await Board.findByIdAndUpdate(
+        board.id,
+        { $set: { favouritePosition: key } }
+      )
+    }
+    res.status(200).json('Changed!')
+  } catch (err) {
     res.status(500).json(err)
   }
 }
