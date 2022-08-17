@@ -56,6 +56,13 @@ router.put(
   boardController.editBoard
 )
 
+router.delete(
+  '/:boardId',
+  validation.validate,
+  tokenHandler.verifyToken,
+  boardController.deleteBoard
+)
+
 
 
 module.exports = router

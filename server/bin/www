@@ -17,7 +17,7 @@ dotenv.config()
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '5001');
 app.set('port', port);
 
 /**
@@ -33,9 +33,10 @@ const server = http.createServer(app);
 mongoose.connect(process.env.MONGODB_URL)
   .then(() => {
     server.listen(port);
+    // server.listen(5055);
     server.on('error', onError);
     server.on('listening', onListening);
-    console.log(`Server is connected to ${process.env.MONGODB_URL}`)
+    console.log(`Server (port:${port}) is connected to ${process.env.MONGODB_URL}`)
   })
   .catch(err => {
     console.log(err)
