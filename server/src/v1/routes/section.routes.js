@@ -5,12 +5,21 @@ const validation = require('../handlers/validation')
 const tokenHandler = require('../handlers/tokenHandler')
 const sectionController = require('../controllers/section-ctrl')
 
+router.get(
+  '/',
+  validation.validate,
+  tokenHandler.verifyToken,
+  sectionController.getSectionsByBoard
+)
+
 router.post(
   '/',
   param('boardId').custom(value => {
     if (!validation.isObjectId(value)) {
       return Promise.reject('invalid id')
-    } else return Promise.resolve()
+    } else {
+      return Promise.resolve()
+    }
   }),
   validation.validate,
   tokenHandler.verifyToken,

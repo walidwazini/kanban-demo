@@ -2,6 +2,17 @@ const asyncHandler = require('express-async-handler')
 const Section = require('../models/section')
 const Task = require('../models/task')
 
+exports.getSectionsByBoard = asyncHandler(async (req, res) => {
+  const { boardId } = req.params
+
+  try {
+    const sections = await Section.find({ board: boardId })
+    res.status(200).json(sections)
+  } catch (err) {
+    console.log(err)
+  }
+})
+
 exports.create = asyncHandler(async (req, res) => {
   const { boardId } = req.params
 
